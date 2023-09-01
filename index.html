@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Name of the project -->
+    <title>Stopwatch</title>
+    
+    <!-- Linking the Favicon icon for displaying the timer icon in the page title in the browser tab -->
+    <link rel="icon" type="image/x-icon" href="images/timer.ico">
+    
+    <!-- Linking the CSS file for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- It is the container which contains the StopWatch -->
+    <div class="container">
+        
+        <!-- Div To display the time in Neon Style -->
+        <div class="neonText">
+            00 : 00 : 00 : 000
+        </div>
+        
+        <!-- Buttons for different functionality -->
+        <div class="buttons">
+            
+            <!-- Start button with an id linked with javascript click event handler to start the timer -->
+            <button id="start-timer">Start</button>
+            
+            <!-- Stop button with an id linked with javascript click event handler to stop the timer -->
+            <button id="pause-timer">Stop</button>
+            
+            <!-- Reset button with an id linked with javascript click event handler to reset the timer -->
+            <button id="reset-timer">Reset</button>
+        </div>
+    </div>
+
+    <!-- Javascript file with functionalities to make the Stopwatch work -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+/* Importing the Google fonts api to display the font family when neccessary */
+/* Imported Wallpoet for Timer and Handjet for Buttons */
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&family=Handjet:wght@300');
+
+
+/* The * selector applies the definition/styling to EVERY element on the page.*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Background image of the web page with full screen size */
+body {
+    
+    /* bg-9 is a jpg file that is present inside images folder*/
+    background: url(images/bg-9.jpg) no-repeat center center fixed; 
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+/* Styling of the container which contains the Stopwatch */
+.container {
+    
+    /* Adjusted the attributes of the stopwatch container accrodingly
+    to fit the stopwatch inside the rectangular box of the background image */
+    width: 64%;
+    height: 67%;
+    min-width: 500px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 20px 0;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.338);
+}
+
+/* Common Styling for the buttons */
+.buttons {
+
+    /* Width between the buttons horizontally */
+    width: 90%;
+
+    /* Space between the Buttons div and the previous Div,
+    i.e the container of stopwatch vertically */
+    margin: 160px auto 0 auto;
+    
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* Styling of the Outline Box and Timer in Neon Style */
+.neonText {
+  
+  /* As Timer has to be displayed in a Bigger format size is set accordingly */
+  font-size: 69px;
+
+  /* Height of the outline box containing the Timer inside*/
+  height: 170px;
+  
+  /* Using the Google font: Wallpoet to display the numbers in timer in digital style */
+  font-family: 'Wallpoet', cursive;
+
+  /* Font color of the numbers in timer is set to black*/
+  background-color: #010a01;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Important part*/
+  /* We are adding animation to the timer for every 1 second */
+  animation: pulsate 1.0s infinite alternate;  
+
+  /* Styling the Border of the outline box containing the timer*/
+  
+  /* Border of the outline box is set to blue color to replicate the neon effect */
+  border: 0.2rem solid #01d2f9;
+  
+  /* Radius of the outline box is set to achieve rounded edges */
+  border-radius: 2rem;
+  padding: 0.4em;
+
+  /* Box shadow is used to provide glowing effect on the outline box
+  multiple layers of shadow colors are used using colors at different rem */
+  box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #bc13fe,
+            0 0 0.8rem #bc13fe,
+            0 0 2.8rem #bc13fe,
+            inset 0 0 1.3rem #bc13fe; 
+}
+
+/* Defining what happens when animation occurs */
+/* Animation gives a kind of flickering effect for the timer as the animation 
+time frame is 1sec , at 0th sec a different color will be visible and then at 1st sec
+different color will be visible, multiple generations of these color changes will 
+provide a flikkering effect.*/ 
+@keyframes pulsate {
+  
+  /* 100% is the 1 sec timeframe , and the numbers of the timer will have shadow according 
+  to the colors defined here */  
+  100% {
+
+      text-shadow:
+      0 0 4px #ffffff,
+      0 0 11px #199fed, 
+      0 0 19px #00ff6a,
+      0 0 40px #bc13fe,
+      0 0 80px #bc13fe,
+      0 0 90px #bc13fe,
+      0 0 100px #bc13fe,
+      0 0 150px #bc13fe;
+  
+  }
+  
+  /* 0% is the 0 sec timeframe , and the numbers of the timer will have shadow according 
+  to the colors defined here */ 
+  0% {
+
+    text-shadow:
+    0 0 2px #fff,
+    0 0 4px #199fed,
+    0 0 6px #fff,
+    0 0 10px #bc13fe,
+    0 0 45px #bc13fe,
+    0 0 55px #bc13fe,
+    0 0 70px #bc13fe,
+    0 0 80px #bc13fe;
+
+}
+}
+
+/* Customized Styling for the button that performs action */
+.buttons button {
+
+    /* Setting the width and height of the buttom */
+    width: 120px;
+    height: 45px;
+
+    /* Important part - Set the color of the button to purple */
+    background-color: #b21ed2;
+    
+    /* Set the color , font , font size of the text displayed in the button */
+    /* Used Handjet font to produce dotted text style */
+    color: #000000;
+    border: none;
+    font-family: 'Handjet', cursive;
+    font-size: 38px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* CSS :nth-last-child() Selector */
+/* Now we have already defined the styles to the button for action , We have 3 actions
+Start , Stop and Reset. So to differtiate between them , we are adding some changes to 
+each button. We are adding 3 different colors for 3 buttons */
+
+/* But we need to add a seperate div for each button, we can achive this 
+differentiation by using nth-last-child(). while using it for buttons it will Specify
+a given background color for every <button> element that is the n child of its parent,
+counting from the last child. */
+
+/* Button color violet for child(2)(Stop) of the parent(Start) counting from last
+child(1)(Reset) */
+.buttons button:nth-last-child(2) {
+    background-color: #793a87;
+}
+
+/* Button color Blue for child(1)(Reset) of the parent(Start) counting from last */
+.buttons button:nth-last-child(1) {
+    background-color: #01d2f9;
+}
+
+/* While moving the mouse over the action buttons a Yellow box-shadow will appear around
+the buttons */
+.buttons button:hover {
+    box-shadow: 0 0 20px rgba(248, 252, 0, 0.998);
+}
